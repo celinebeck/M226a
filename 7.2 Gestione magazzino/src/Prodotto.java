@@ -4,6 +4,18 @@ public class Prodotto {
     private int codice;
     private int quantitaMagazzino;
     private float prezzoUnitario;
+    //get e set
+    public int getCodice(){
+        return codice;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+    public float getPrezzoUnitario(){
+        return prezzoUnitario;
+    }
     //costruttore
     public Prodotto(String nome, int codice, int quantitaMagazzino, float prezzoUnitario) {
         this.nome = nome;
