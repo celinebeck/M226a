@@ -1,0 +1,20 @@
+@startuml
+
+class Persona {
+        - String: nome
+        - Auto: auto
+
+        + Persona(String nome)
+    }
+
+    class Auto {
+        - String: marca
+        - String: modello
+        - String: colore
+
+         + Auto(String marca, String modello, String colore) : void
+         + cambiaColore(String newColore) : void
+    }
+Persona "  1" -- "1" Auto
+
+@enduml

@@ -10,6 +10,11 @@ public class Client {
     }
 
     //metodi
+
+    /**
+     *
+     * @return nome
+     */
     public String getName(){
         return this.name;
     }
@@ -18,6 +23,10 @@ public class Client {
         return this.account;
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void addFunds(double amount){
         this.account.deposit(amount);
 

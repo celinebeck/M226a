@@ -4,16 +4,30 @@ public class Account {
     private double balance;
     private String accountNumber;
     //costruttore
+
+    /**
+     * @param accountNumber
+     * @param balance
+     */
     public Account(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
 
     //metodi
+
+    /**
+     *
+     * @param amount
+     */
     public void deposit (double amount) {
         this.balance += amount;
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void withdraw (double amount) {
         if (this.balance-amount > 0) {
             this.balance -= amount;

@@ -1,0 +1,23 @@
+@startuml
+class Prodotto {
+        -String nome;
+             - int : codice
+             - int : quantitaMagazzino
+             - float : prezzoUnitario
+
+             + Prodotto(String nome, int codice, int quantitaMagazzino, float prezzoUnitario) : void
+             + AggiornaQuantita(int quantita) : void
+             + calcolaValoreTotale() : void
+    }
+class Magazzino {
+             - ArrayList<Prodotto> : prodotti
+
+             + Magazzino(ArrayList<Prodotto> prodotti) : void
+             + aggiungiProdotto(Prodotto prodotto) : void
+             + rimuoviProdotto(Prodotto prodotto) : void
+             + cercaProdotto(int codice) : void
+             + calcolaValoreTotaleMagazzino() : void
+             + visualizzaMagazzino() : void
+        }
+        Prodotto "1" -- "N" Magazzino
+@enduml

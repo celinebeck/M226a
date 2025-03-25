@@ -1,0 +1,22 @@
+@startuml
+
+class Account {
+        - double : balance
+        - String : accountNumber
+
+        + Account(String accountNumber, double balance) : void
+        + deposit (double amount) : void
+        + withdraw (double amount) : void
+    }
+
+    class Client {
+         - String : name
+         - Account : account
+
+         + Client(String name, Account account) : void
+         + addFunds(double amount) : void
+         + withdrawFunds(double amount) : void
+    }
+Client "  1" -- "1" Account
+
+@enduml

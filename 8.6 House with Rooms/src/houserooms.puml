@@ -1,0 +1,19 @@
+@startuml
+
+class Room {
+    - String : nome;
+    - int : superfice;
+    - RoomType : roomType;
+
+    + Room(String nome, int superfice, RoomType roomType) : void
+    }
+
+    class House {
+        - String : indirizzo
+        - ArrayList<Room> : rooms
+
+
+    }
+Client "  1" -- "1" Account
+
+@enduml
