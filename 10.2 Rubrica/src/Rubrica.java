@@ -31,6 +31,9 @@ public class Rubrica {
                 String contact = "id= "+ c.getId()+" name= "+ c.getName()+" surname= "+c.getSurname()+" email= "+ c.getEmail()+" phone= "+ c.getPhone();
                 System.out.println(contact);
             }
+            else if(c ==null){
+                System.out.println("Non e stato trovato il contatto");
+            }
         }
     }
     public void deleteContact(String surname, String name) {
@@ -39,9 +42,26 @@ public class Rubrica {
                 String contact = "id= "+ c.getId()+" name= "+ c.getName()+" surname= "+c.getSurname()+" email= "+ c.getEmail()+" phone= "+ c.getPhone();
                 System.out.println("Rimosso: "+contact);
                 contatti.remove(c);
+            } else if (c == null) {
+                System.out.println("Non e stato trovato il contatto da rimuovere");
             }
-            else if () {
-                System.out.println("Contatto non trovato");
+        }
+    }
+    public void modifyContact(String id, String campo, String modifica){
+        for (Contact c : contatti) {
+            if(c.getId().equals(id)){
+                if(campo == "name"){
+                    c.setName(modifica);
+                }
+                if(campo == "surname"){
+                    c.setSurname(modifica);
+                }
+                if(campo == "email"){
+                    c.setEmail(modifica);
+                }
+                if(campo == "phone"){
+                    c.setPhone(modifica);
+                }
             }
         }
     }

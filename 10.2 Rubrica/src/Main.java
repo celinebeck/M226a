@@ -18,6 +18,8 @@ public class Main {
         System.out.println("Ricerca Gio Pippo:");
         r1.findContactSurnameName("Pippo", "Gio");
         r1.deleteContact("Pippo", "Gio");
+        r1.modifyContact("1", "phone", "12345678");
+        r1.printContacts();
 
     }
 }
