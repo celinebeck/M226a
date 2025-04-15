@@ -1,0 +1,17 @@
+@startuml
+
+class Patient {
+    - name : String;
+    - age : int;
+    - gender : char
+    - PatientType : PatientType;
+
+    + avgPatientAge() : double
+    }
+
+    class PatientType {
+
+    }
+Patient "  N" -- "1" PatientType
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+
+class book {
+    - name : String
+    - author : String
+    - genre : String
+    - stock : int
+
+    + addStock() : int
+    }
+
+    class PublishingHouse {
+        - String : name
+        - String : indirizzo
+        - ArrayList<Book> : book
+
+        + addBook() : void
+        + removeBook() : void
+        + printBooks() : void
+        + countBooks() : int
+    }
+book "  1" -- "N" PublishingHouse
+
+@enduml
