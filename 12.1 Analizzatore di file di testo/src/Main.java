@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-        String pathIn = "C:\\DatiAllievo\\M226a\\11.1 Analizzatore di file di testo\\test.txt";
-        String pathOut = "C:\\DatiAllievo\\M226a\\11.1 Analizzatore di file di testo\\output.txt";
+        String pathIn = "C:\\DatiAllievo\\M226a\\12.1 Analizzatore di file di testo\\test.txt";
+        String pathOut = "C:\\DatiAllievo\\M226a\\12.1 Analizzatore di file di testo\\output.txt";
         Path outputPath = Paths.get(pathOut);
         Path inputPath = Paths.get(pathIn);
         FileAnalisy in = new FileAnalisy(inputPath);
@@ -27,6 +27,5 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Errore scrittura!");
         }
-
     }
 }
