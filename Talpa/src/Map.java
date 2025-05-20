@@ -1,6 +1,8 @@
 public class Map {
     //parametro
     private String[][] Map;
+    private int frogLine;
+    private int frogCol;
     //costruttore
     public Map() {
         Map = new String[3][3];
@@ -9,6 +11,8 @@ public class Map {
                 Map[i][j] = "\u25A0 ";
             }
         }
+        this.frogLine = 100;
+        this.frogCol = 100;
     }
     public Map(String[][] map) {
         this.Map = map;
@@ -17,7 +21,25 @@ public class Map {
     public String[][] getMap() {
         return Map;
     }
+    public int getFrogLine() {
+        return frogLine;
+    }
+    public int getFrogCol() {
+        return frogCol;
+    }
+    public void setFrogLine(int frogLine) {
+         this.frogLine = frogLine;
+    }
+    public void setFrogCol(int frogCol) {
+        this.frogCol = frogCol;
+    }
     //metodi
+    public void insertFrog(int col, int line) {
+        String frog = "\uD83D\uDC38";
+        Map[line][col] = frog;
+        this.frogCol = col;
+        this.frogLine = line;
+    }
     @Override
     public String toString() {
         String s = "";
