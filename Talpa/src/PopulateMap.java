@@ -1,6 +1,6 @@
 import java.util.Random;
 public class PopulateMap {
-    private int randNum() {
+    public int randNum() {
         Random r = new Random();
         int randomNum = (int)(Math.random() * 3);
         return randomNum;
@@ -14,6 +14,13 @@ public class PopulateMap {
         int line = randNum();
         int col = randNum();
         map.insertFrog(col, line);
+        printMap(map);
+    }
+
+    public void insertBomb(Map map){
+        int line = randNum();
+        int col = randNum();
+        map.insertBomb(col, line);
         printMap(map);
     }
 
@@ -42,7 +49,7 @@ public class PopulateMap {
      * Rispulisce la console
      */
     public void CleanCons(){
-        for(int i =0; i<10;i++){
+        for(int i =0; i<15;i++){
             System.out.println("                                                                                                                                                   ");
         }
     }

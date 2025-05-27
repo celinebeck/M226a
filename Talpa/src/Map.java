@@ -40,6 +40,12 @@ public class Map {
         this.frogCol = col;
         this.frogLine = line;
     }
+    public void insertBomb(int col, int line) {
+        String bomb = "\uD83D\uDCA3";
+        Map[line][col] = bomb;
+        this.frogCol = col;
+        this.frogLine = line;
+    }
     @Override
     public String toString() {
         String s = "";
