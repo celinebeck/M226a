@@ -1,20 +1,17 @@
-import java.util.Timer;
 import java.lang.Thread;
 import java.lang.InterruptedException;
-import java.awt.event.*;
 import java.util.Scanner;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 public class Frog {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         PopulateMap populateMap = new PopulateMap();
+        String userPos = "";
+        FilePlayInfo file = new FilePlayInfo();
         System.out.println("Per terminare il gioco premere Q");
+        System.out.println("Per vedere la classifica premere R");
         System.out.println("Per evitare la bomba premere invio");
-        System.out.println("Scegli una difficolta   1   2   3");
+        System.out.println("Scegliere una difficolta   1   2   3");
         //selezionare la difficolta
         int difficult = Integer.parseInt(scanner.nextLine());
         if (difficult == 1) {
@@ -31,33 +28,36 @@ public class Frog {
         //inizio del gioco
         while (true) {
             Thread.sleep(difficult);
-            Map map = new Map();
+            GameMap gameMap = new GameMap();
             populateMap.CleanCons();
             int ranNum = populateMap.randNum();
             //popolare mappa bomba/rana
             if (ranNum == 1) {
-                populateMap.insertBomb(map);
+                populateMap.insertBomb(gameMap);
                 bombExists = 1;
             }
             else {
-                populateMap.insertFrog(map);
+                populateMap.insertFrog(gameMap);
                 bombExists = 0;
             }
             try {
                 //richiesta tasto utente
-                String userPos = scanner.nextLine();
-                int line = map.getFrogLine();
-                int col = map.getFrogCol();
+                userPos = scanner.nextLine();
+                int line = gameMap.getFrogLine();
+                int col = gameMap.getFrogCol();
                 int targetCol = 0;
                 int targetLine = 0;
                 //opzioni gioco
                 if (userPos.equals("r")) {
-                    System.out.println("Miglior punteggio: ");
-                    System.out.println("Partite giocate: ");
+                    System.out.println("Miglior punteggio: " + file.readHighScore());
+                    System.out.println("Partite giocate: " + file.readTotPlay());
                     System.exit(0);
                 }
                 if (userPos.equals("q")) {
+                    file.writeHighScore(punteggio);
+                    file.writeTotPlay();
                     System.out.println("Gioco terminato.");
+                    System.out.println("Punteggio: " + punteggio);
                     System.exit(0);
                 }
                 int tasto = Integer.parseInt(userPos);
@@ -107,13 +107,21 @@ public class Frog {
                         populateMap.emptyMap();
                         punteggio += 1;
                     } else {
+                        file.writeHighScore(punteggio);
+                        file.writeTotPlay();
                         System.out.println("Punteggio: " + punteggio);
                         System.out.println("Gioco terminato.");
                         System.exit(0);
                     }
                 }
             } catch (NumberFormatException e) {
+                //se l'utente preme invio per eitare la bomba il gioco non da annunci
+                if(userPos.equals("") && bombExists == 1) {
+                    System.out.print("");
+                }
+                else{
                 System.out.println("Posizione non ammessa!");
+                }
             }
             //aumento della velocita
             if (punteggio == 20 || punteggio == 50) {

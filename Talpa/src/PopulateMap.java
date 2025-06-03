@@ -8,38 +8,38 @@ public class PopulateMap {
 
     /**
      * Inserisce una rana in una posizione casuale
-     * @param map
+     * @param gameMap
      */
-    public void insertFrog(Map map){
+    public void insertFrog(GameMap gameMap){
         int line = randNum();
         int col = randNum();
-        map.insertFrog(col, line);
-        printMap(map);
+        gameMap.insertFrog(col, line);
+        printMap(gameMap);
     }
 
-    public void insertBomb(Map map){
+    public void insertBomb(GameMap gameMap){
         int line = randNum();
         int col = randNum();
-        map.insertBomb(col, line);
-        printMap(map);
+        gameMap.insertBomb(col, line);
+        printMap(gameMap);
     }
 
     /**
      * Crea una mappa vuota
      */
     public void emptyMap (){
-        Map emptyMap = new Map();
-        printMap(emptyMap);
+        GameMap emptyGameMap = new GameMap();
+        printMap(emptyGameMap);
     }
 
     /**
      * Stampa la mappa
-     * @param map
+     * @param gameMap
      */
-    private void printMap(Map map){
-        for(int i = 0; i < map.getMap().length; i++){
-            for(int j = 0; j < map.getMap()[i].length; j++){
-                System.out.print(map.getMap()[i][j]);
+    private void printMap(GameMap gameMap){
+        for(int i = 0; i < gameMap.getMap().length; i++){
+            for(int j = 0; j < gameMap.getMap()[i].length; j++){
+                System.out.print(gameMap.getMap()[i][j]);
             }
             System.out.println();
         }

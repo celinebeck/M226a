@@ -1,10 +1,10 @@
-public class Map {
+public class GameMap {
     //parametro
     private String[][] Map;
     private int frogLine;
     private int frogCol;
     //costruttore
-    public Map() {
+    public GameMap() {
         Map = new String[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -14,7 +14,7 @@ public class Map {
         this.frogLine = 100;
         this.frogCol = 100;
     }
-    public Map(String[][] map) {
+    public GameMap(String[][] map) {
         this.Map = map;
     }
     //getter e setter
@@ -34,12 +34,24 @@ public class Map {
         this.frogCol = frogCol;
     }
     //metodi
+
+    /**
+     * Inserisce la rana
+     * @param col
+     * @param line
+     */
     public void insertFrog(int col, int line) {
         String frog = "\uD83D\uDC38";
         Map[line][col] = frog;
         this.frogCol = col;
         this.frogLine = line;
     }
+
+    /**
+     * inserisce la bomba
+     * @param col
+     * @param line
+     */
     public void insertBomb(int col, int line) {
         String bomb = "\uD83D\uDCA3";
         Map[line][col] = bomb;

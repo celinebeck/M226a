@@ -1,0 +1,37 @@
+@startuml
+
+    class frog {
+    }
+
+    class GameMap {
+        - Map : String[][]
+        - frogLine : int
+        - frogCol : int
+
+        + insertFrog(int col, int line) : void
+        + insertBomb(int col, int line) : void
+    }
+    class PopulateMap{
+        - printMap(Map map) : void
+        + randNum() : int
+        + insertFrog(Map map) : void
+        + insertBomb(Map map) : void
+        + emptyMap () : void
+        + CleanCons() : void
+    }
+    class FilePlayInfo{
+        - lines : List<String>
+        - path : Path
+
+        - getLines() : List<String>
+        + readHighScore() : String
+        + writeHighScore(int score) : void
+        + readTotPlay() : String
+        + writeTotPlay() : void
+    }
+frog "  1" -- "N" GameMap
+frog "  1" -- "N" PopulateMap
+frog "  1" -- "N" FilePlayInfo
+GameMap "  N" -- "N" PopulateMap
+
+@enduml
